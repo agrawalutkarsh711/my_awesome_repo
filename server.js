@@ -9,13 +9,13 @@ app.get('/',(req,res)=>{
     res.send('HELLO TO ALL')
 })
 
-app.get('/tasks',(req,res)=>{
-    const tasks = Tasks.findAll();
+app.get('/tasks',async (req,res)=>{
+    const tasks = await Tasks.findAll();
     res.send(tasks)
 })
 
-app.post('/tasks',(req,res)=>{
-    const task = Tasks.create(req.body)
+app.post('/tasks',async(req,res)=>{
+    const task = await Tasks.create(req.body)
     res.send(task)
 })
 

@@ -5,6 +5,9 @@ const {db , Tasks} = require('./db.js')
 const PORT = process.env.PORT || 4444
 const app = express()
 
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
+
 app.get('/',(req,res)=>{
     res.send('HELLO TO ALL')
 })
@@ -14,7 +17,7 @@ app.get('/tasks',async (req,res)=>{
     res.send(tasks)
 })
 
-app.post('/tasks',async(req,res)=>{
+app.post('/tasks',async (req,res)=>{
     const task = await Tasks.create(req.body)
     res.send(task)
 })

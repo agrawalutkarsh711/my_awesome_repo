@@ -6,6 +6,6 @@ app.get('/',(req,res)=>{
     res.send('HELLO TO ALL')
 })
 
-app.use('/public',express.static(__dirname + "./public"))
+app.use('/public',express.static(__dirname + "/public"))
 
 app.listen(PORT,()=>console.log("Site is hosted"))

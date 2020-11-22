@@ -26,6 +26,7 @@ app.use('/public',express.static(__dirname + "/public"))
 
 db.sync()
 .then(()=>{
+    console.log("The site is hosted for a short period of time")
     app.listen(PORT,()=>console.log("Site is hosted"))
 })
 .catch((err)=>{
